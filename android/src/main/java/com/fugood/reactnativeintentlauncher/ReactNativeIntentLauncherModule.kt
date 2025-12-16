@@ -126,7 +126,7 @@ class ReactNativeIntentLauncherModule(reactContext: ReactApplicationContext) :
     }
   }
 
-  override fun onActivityResult(activity: Activity?, requestCode: Int, resultCode: Int, data: Intent?) {
+  override fun onActivityResult(activity: Activity, requestCode: Int, resultCode: Int, data: Intent?) {
     if (requestCode == REQUEST_CODE) {
       if (mPromise != null) {
         val result = Arguments.createMap()
@@ -143,7 +143,7 @@ class ReactNativeIntentLauncherModule(reactContext: ReactApplicationContext) :
     }
   }
 
-  override fun onNewIntent(intent: Intent?) {
+  override fun onNewIntent(intent: Intent) {
     // No-op
   }
 
