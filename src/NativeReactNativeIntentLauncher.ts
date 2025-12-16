@@ -5,6 +5,4 @@ export interface Spec extends TurboModule {
   startService(params: Object): Promise<void>;
 }
 
-export default TurboModuleRegistry.getEnforcing<Spec>(
-  'ReactNativeIntentLauncher'
-);
+export default TurboModuleRegistry.get<Spec>('ReactNativeIntentLauncher');

@@ -1,4 +1,6 @@
-import ReactNativeIntentLauncher from './NativeReactNativeIntentLauncher';
+import NativeAPI from './NativeReactNativeIntentLauncher';
+
+const NO_API_ERROR = 'Intent API is not available';
 
 export interface IntentParams {
   action?: string;
@@ -19,11 +21,15 @@ export interface ActivityResult {
 }
 
 export function startActivity(params: IntentParams): Promise<ActivityResult> {
-  return ReactNativeIntentLauncher.startActivity(
-    params
-  ) as Promise<ActivityResult>;
+  if (!NativeAPI) {
+    throw new Error(NO_API_ERROR);
+  }
+  return NativeAPI.startActivity(params) as Promise<ActivityResult>;
 }
 
 export function startService(params: IntentParams): Promise<void> {
-  return ReactNativeIntentLauncher.startService(params);
+  if (!NativeAPI) {
+    throw new Error(NO_API_ERROR);
+  }
+  return NativeAPI.startService(params);
 }
