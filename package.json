@@ -1,6 +1,6 @@
 {
   "name": "@fugood/react-native-intent-launcher",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Android Intent launcher",
   "main": "./lib/module/index.js",
   "types": "./lib/typescript/src/index.d.ts",
